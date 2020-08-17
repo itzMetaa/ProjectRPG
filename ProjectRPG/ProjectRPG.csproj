@@ -44,7 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enemy.cs" />
+    <Compile Include="EnemyCreator.cs" />
     <Compile Include="GameMain.cs" />
+    <Compile Include="GameMainEventSystem.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerIntroductionSegment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

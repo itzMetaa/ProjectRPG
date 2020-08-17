@@ -53,7 +53,7 @@ namespace ProjectRPG
                         break;
                 }
             }
-
+             
             /*
             nev += Convert.ToString(abc[r.Next(1, abc.Length)]).ToUpper();
             for (int i = 0; i < n - 1; i++)

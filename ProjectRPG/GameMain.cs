@@ -22,7 +22,20 @@ namespace ProjectRPG
 
             Console.ReadLine();
         }
+        private static string randomNev2(int nevHossz)
+        {
+            string abc = "AEIOUBCDFGHJKLMNPQRSTVWXYZ";
+            string nev = "";
 
+            nev += Convert.ToString(abc[r.Next(1, abc.Length)]).ToUpper();
+            for (int i = 0; i < nevHossz - 1; i++)
+            {
+                nev += Convert.ToString(abc[r.Next(0, abc.Length)]).ToLower();
+            }
+
+
+            return nev;
+        }
         private static string randomNev(int nevHossz)
         {
             string nev = "";
@@ -32,35 +45,38 @@ namespace ProjectRPG
             string betuVariansANevben = "";
 
             for (int i = 0; i < nevHossz; i++)
-                betuVariansANevben += Convert.ToString(r.Next(0,2));
+                betuVariansANevben += Convert.ToString(r.Next(0, 2));
+
+            int karakterSzam = 0;
 
             foreach (var karakterHely in betuVariansANevben)
             {
                 var karakter = karakterHely;
-
-                /*
-                if (karakter > 1 || karakter < 0)
-                    karakter = '0';
-                */
+                
+                var karakterMaganhangzo = Convert.ToString(maganHangzok[r.Next(0, maganHangzok.Length)]);
+                var karakterMassalhangzo = Convert.ToString(massalHangzok[r.Next(0, massalHangzok.Length)]);
 
                 switch (karakter)
                 {
                     case '0':
-                        nev += maganHangzok[r.Next(0, maganHangzok.Length)]; break;
+                        if (karakterSzam == 0)
+                            nev += karakterMaganhangzo;
+                        else
+                            nev += karakterMaganhangzo.ToLower();
+                        
+                        break;
                     case '1':
-                        nev += massalHangzok[r.Next(0, massalHangzok.Length)]; break;
+                        if (karakterSzam == 0)
+                            nev += karakterMassalhangzo;
+                        else
+                            nev += karakterMassalhangzo.ToLower();
+                        break;
                     default:
                         break;
                 }
+
+                karakterSzam++;
             }
-             
-            /*
-            nev += Convert.ToString(abc[r.Next(1, abc.Length)]).ToUpper();
-            for (int i = 0; i < n - 1; i++)
-            {
-                nev += Convert.ToString(abc[r.Next(0, abc.Length)]).ToLower();
-            }
-            */
 
             return nev;
         }
